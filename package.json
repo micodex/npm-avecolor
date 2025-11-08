@@ -1,0 +1,36 @@
+{
+  "name": "avecolor",
+  "version": "1.0.2",
+  "description": "A lightweight JavaScript utility to extract the average color from any image. Supports HEX or RGB output.",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micodex/npm-avecolor.git"
+  },
+  "keywords": [
+    "average-color",
+    "dominant-color",
+    "image-color",
+    "background-color",
+    "auto-theme",
+    "color-extraction",
+    "image-processing",
+    "color-analysis",
+    "rgb",
+    "hex",
+    "shadow-color"
+  ],
+  "author": "\"Milad Gharibi\",",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micodex/npm-avecolor/issues"
+  },
+  "homepage": "https://github.com/micodex/npm-avecolor#readme"
+}
