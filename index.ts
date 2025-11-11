@@ -1,4 +1,23 @@
-export async function getAverageColor(imageSrc, options = {}) {
+export interface AverageColorOptions {
+  /** Return color format: "hex" | "rgb" */
+  format?: "hex" | "rgb";
+  /** Apply opacity (0–1) */
+  opacity?: number;
+  /** Skip pure white pixels */
+  skipWhite?: boolean;
+}
+
+/**
+ *
+ * @param imageSrc URL or path to the image
+ * @param options Optional configuration
+ * @returns Promise<string> Average color in the specified format
+ */
+
+export async function getAverageColor(
+  imageSrc: string,
+  options: AverageColorOptions = {}
+): Promise<string> {
   const { format = "hex", opacity = 1, skipWhite = false } = options;
 
   return new Promise((resolve, reject) => {
@@ -12,6 +31,7 @@ export async function getAverageColor(imageSrc, options = {}) {
       // create a hidden canvas
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
+      if (!ctx) return reject("Canvas not supported");
 
       // resize image to smaller size for speed
       const width = 100;
@@ -72,8 +92,8 @@ export async function getAverageColor(imageSrc, options = {}) {
   });
 
   // Helper to convert RGB → HEX
-  function rgbToHex(r, g, b) {
-    const toHex = (v) => v.toString(16).padStart(2, "0");
+  function rgbToHex(r: number, g: number, b: number): string {
+    const toHex = (v: number) => v.toString(16).padStart(2, "0");
     const hex = `#${toHex(r)}${toHex(g)}${toHex(b)}`;
     return opacity < 1 ? `${hex}${toHex(Math.round(opacity * 255))}` : hex;
   }

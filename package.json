@@ -2,13 +2,17 @@
   "name": "avecolor",
   "version": "1.0.2",
   "description": "A lightweight JavaScript utility to extract the average color from any image. Supports HEX or RGB output.",
-  "main": "index.js",
   "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,5 +36,8 @@
   "bugs": {
     "url": "https://github.com/micodex/npm-avecolor/issues"
   },
-  "homepage": "https://github.com/micodex/npm-avecolor#readme"
+  "homepage": "https://github.com/micodex/npm-avecolor#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
 }
